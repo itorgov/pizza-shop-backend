@@ -2,12 +2,11 @@
 
 use App\Pizza;
 use App\PizzaSize;
+use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Arr;
-use Faker\Generator as Faker;
 
 /** @var Factory $factory */
-
 $factory->define(PizzaSize::class, function (Faker $faker) {
     $size = Arr::random([10, 12, 14]);
 

@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Str;
 
 /** @var Factory $factory */
-
 $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
