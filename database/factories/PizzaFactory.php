@@ -7,7 +7,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 
 /** @var Factory $factory */
-
 $factory->define(Pizza::class, function () {
     return [
         'name' => Arr::random([
