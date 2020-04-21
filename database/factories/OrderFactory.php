@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Arr;
 
 /** @var Factory $factory */
-
 $factory->define(Order::class, function (Faker $faker) {
     return [
         'name' => $faker->name,

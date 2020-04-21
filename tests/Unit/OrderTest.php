@@ -4,8 +4,8 @@ namespace Tests\Unit;
 
 use App\Order;
 use App\PizzaSize;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class OrderTest extends TestCase
 {
