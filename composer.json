@@ -1,12 +1,18 @@
 {
-    "name": "laravel/laravel",
+    "name": "itorgov/pizza-shop-backend",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "The backend part of my Pizza Shop project written with Laravel 7 framework.",
     "keywords": [
-        "framework",
-        "laravel"
+        "pizza",
+        "shop"
     ],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan Torgov",
+            "email": "likecod@gmail.com"
+        }
+    ],
     "require": {
         "php": "^7.4",
         "ext-pdo": "*",
