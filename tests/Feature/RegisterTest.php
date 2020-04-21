@@ -82,6 +82,36 @@ class RegisterTest extends TestCase
     }
 
     /** @test */
+    public function guests_can_login_after_registration()
+    {
+        Event::fake();
+
+        $response = $this->postJson('/auth/register', $this->validParams([
+            'email' => 'john@example.com',
+            'password' => 'secret',
+        ]));
+
+        $response->assertStatus(201);
+        /** @var User $user */
+        $user = User::query()->first();
+        $this->assertAuthenticatedAs($user);
+        Event::assertDispatched(Registered::class, function ($event) use ($user) {
+            return $event->user->id === $user->id;
+        });
+
+        Auth::logout();
+        $this->assertGuest();
+
+        $response = $this->postJson('/auth/login', [
+            'email' => 'john@example.com',
+            'password' => 'secret',
+        ]);
+
+        $response->assertStatus(200);
+        $this->assertAuthenticatedAs($user);
+    }
+
+    /** @test */
     public function guests_cannot_register_without_name()
     {
         Event::fake();

@@ -28,7 +28,7 @@ class RegisterController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'phone' => $request->input('phone'),
-            'password' => bcrypt($request->input('phone')),
+            'password' => bcrypt($request->input('password')),
         ]);
 
         event(new Registered($user));
