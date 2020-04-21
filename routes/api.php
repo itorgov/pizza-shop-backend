@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('delivery-fees', 'DeliveryFeesController@index');
 Route::get('pizzas', 'PizzasController@index');
+Route::get('orders', 'OrdersController@index')->middleware('auth');
 Route::post('orders', 'OrdersController@store');

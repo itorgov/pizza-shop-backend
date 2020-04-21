@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
@@ -16,6 +18,8 @@ use Illuminate\Support\Carbon;
  * @property string|null $remember_token
  * @property null|Carbon $created_at
  * @property null|Carbon $updated_at
+ *
+ * @property-read Collection|Order[] $orders
  */
 class User extends Authenticatable
 {
@@ -51,4 +55,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
 }

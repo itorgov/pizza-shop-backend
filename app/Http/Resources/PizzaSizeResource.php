@@ -31,6 +31,9 @@ class PizzaSizeResource extends JsonResource
     {
         return [
             'id' => $this->resource->id,
+            'pizza' => $this->whenLoaded('pizza', function () {
+                return new PizzaResource($this->resource->pizza);
+            }),
             'size' => $this->resource->size,
             'price_usd' => $this->resource->price_usd,
             'price_eur' => $this->resource->price_eur,

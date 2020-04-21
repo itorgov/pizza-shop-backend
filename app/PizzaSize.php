@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
 /**
@@ -13,6 +14,8 @@ use Illuminate\Support\Carbon;
  * @property int $price_eur Price in Euros times 100.
  * @property null|Carbon $created_at
  * @property null|Carbon $updated_at
+ *
+ * @property-read Pizza $pizza
  */
 class PizzaSize extends Model
 {
@@ -43,4 +46,9 @@ class PizzaSize extends Model
         'price_usd' => 'integer',
         'price_eur' => 'integer',
     ];
+
+    public function pizza(): BelongsTo
+    {
+        return $this->belongsTo(Pizza::class);
+    }
 }

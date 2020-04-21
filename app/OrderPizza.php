@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
 /**
@@ -14,6 +15,8 @@ use Illuminate\Support\Carbon;
  * @property string $crust
  * @property null|Carbon $created_at
  * @property null|Carbon $updated_at
+ *
+ * @property-read PizzaSize $pizzaSize
  */
 class OrderPizza extends Model
 {
@@ -42,4 +45,9 @@ class OrderPizza extends Model
         'price' => 'integer',
         'quantity' => 'integer',
     ];
+
+    public function pizzaSize(): BelongsTo
+    {
+        return $this->belongsTo(PizzaSize::class);
+    }
 }

@@ -9,6 +9,7 @@ use Illuminate\Support\Carbon;
 
 /**
  * @property int $id
+ * @property int|null $user_id
  * @property string $name
  * @property string $phone
  * @property string $address
@@ -30,6 +31,7 @@ class Order extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'name',
         'phone',
         'address',
@@ -44,6 +46,8 @@ class Order extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'user_id' => 'integer',
+        'delivery_fee' => 'integer',
     ];
 
     public function addPizza(int $id, int $price, int $quantity, string $crust)
